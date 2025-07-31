@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Invoice #{{ invoice.id }}</h2>
+    <p><b>Client:</b> {{ client.name }} ({{ client.company }}) - {{ client.email }}</p>
+    <p><b>Items:</b> {{ invoice.items }}</p>
+    <p><b>Total:</b> ${{ "%.2f"|format(invoice.total) }}</p>
+    <p><b>Status:</b> {{ 'Paid' if invoice.paid else 'Unpaid' }}</p>
+    <a href="{{ url_for('invoice_pdf', invoice_id=invoice.id) }}">Export PDF</a> |
+    <a href="{{ url_for('send_invoice', invoice_id=invoice.id) }}">Send by Email</a>
+    {% if not invoice.paid and stripe_public_key %}
+        <form action="https://checkout.stripe.com/pay/{{ stripe_session_id }}" method="GET">
+            <button type="submit">Pay Now</button>
+        </form>
+    {% endif %}
+{% endblock %}

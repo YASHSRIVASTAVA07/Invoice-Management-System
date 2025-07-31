@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+    background: #f6f6f6;
+}
+header {
+    background: #004085;
+    color: #fff;
+    padding: 1em;
+}
+nav a {
+    color: #fff;
+    margin-right: 1em;
+    text-decoration: none;
+}
+main {
+    padding: 2em;
+    background: #fff;
+    max-width: 700px;
+    margin: 2em auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px #ddd;
+}
+h2 { color: #004085; }
+a { color: #007bff; text-decoration: none;}
+a:hover { text-decoration: underline;}
+button { background: #007bff; color: #fff; border: none; padding: 0.5em 1em; border-radius: 3px; }
+button:hover { background: #0056b3;}

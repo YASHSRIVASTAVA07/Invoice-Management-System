@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>New Invoice for {{ client.name }}</h2>
+    <form method="POST">
+        Items (format: Item x Qty x Price, comma separated):<br>
+        <input type="text" name="items" required><br>
+        Total: <input type="number" name="total" step="0.01" required><br>
+        <button type="submit">Create Invoice</button>
+    </form>
+{% endblock %}
